@@ -74,17 +74,36 @@ if (newARR !== null) {
 }
 
 let rows = table.rows;
-let lastIndexToProf = [];
-let index = [];
-let sum = 0;
-let k = 1;
+//let lastIndexToProf = [];
+//let index = [];
+//let sum = 0;
+//let k = 1;
+let sumDay = 0;
+let sumDayCash = 0;
+let sumDayCard = 0;
 
-for (let i = rows.length - 1; i < rows.length; i--) {
-    if (rows[i].cells[4].innerHTML !== rows[i-1].cells[4].innerHTML) {
+for (let i = rows.length - 1; i < rows.length ; i--) {
 
+	
+
+    if (rows[i].cells[4].innerHTML[1] !== rows[i-1].cells[4].innerHTML[1] && (i-1) !== 0) {
+		console.log('(.)(.)');
+		console.log(rows[i-1].cells[1].innerHTML);
+
+		for (let j = i; j < rows.length; j++) {
+
+			if (Number(+rows[j].cells[1].innerHTML)) {sumDayCash += +rows[j].cells[1].innerHTML};
+			if (Number(+rows[j].cells[2].innerHTML)) {sumDayCard += +rows[j].cells[2].innerHTML};
+
+			if (sumDayCash !== NaN && sumDayCard !== NaN) {}
+				sumDay = sumDayCash + sumDayCard;
+			}
+
+			rows[i].cells[5].innerHTML = sumDay;
+		}
 // ? ниже
 
-		for (let j = 1; j < i; j++) {
+/*		for (let j = 1; j < i; j++) {
 			index.push(j);
 		}
 
@@ -100,8 +119,14 @@ for (let i = rows.length - 1; i < rows.length; i--) {
 
 		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[5].innerHTML = sum + 0.1;
 		sum = 0;
+*/
+/*		for (let j = (rows.length - 1) - rows[i-1].length; j < rows.length - 1; i++)	 {
+			sum += rows[i-1].cells[1].innerHTML;
+			console.log(sum);
+		}
+*/
 	}	
-}
+
 
 lastIndexToProf = [];
 index = [];
