@@ -40,7 +40,7 @@ button.addEventListener('click', function() {
 	}
 });
 
-let newARR = JSON.parse(localStorage.getItem('firstData'));
+let newARR = JSON.parse(localStorage.getItem('firstData')).reverse();
 
 if (newARR !== null) {
 	
@@ -79,8 +79,10 @@ let index = [];
 let sum = 0;
 let k = 1;
 
-for (let i = 1; i < rows.length; i++) {
+for (let i = rows.length - 1; i < rows.length; i--) {
     if (rows[i].cells[4].innerHTML !== rows[i-1].cells[4].innerHTML) {
+
+// ? ниже
 
 		for (let j = 1; j < i; j++) {
 			index.push(j);
@@ -96,7 +98,7 @@ for (let i = 1; i < rows.length; i++) {
 			sum += +rows[k].cells[1].innerHTML + +rows[k].cells[2].innerHTML;
 		}	
 
-		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[5].innerHTML = sum;
+		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[5].innerHTML = sum + 0.1;
 		sum = 0;
 	}	
 }
@@ -124,7 +126,7 @@ for (let i = 1; i < rows.length; i++) {
 			sum += +rows[k].cells[5].innerHTML;
 		}	
 
-		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[6].innerHTML = sum;
+		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[6].innerHTML = sum + 0.01;
 		sum = 0;
 	}
 }
@@ -152,7 +154,7 @@ for (let i = 1; i < rows.length; i++) {
 			sum += +rows[k].cells[5].innerHTML - +rows[k].cells[3].innerHTML;
 		}	
 
-		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[7].innerHTML = sum;
+		rows[lastIndexToProf[lastIndexToProf.length-1]].cells[7].innerHTML = sum + 0.001;
 		sum = 0;
 	}
 }
