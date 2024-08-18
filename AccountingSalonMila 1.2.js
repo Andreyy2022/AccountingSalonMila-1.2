@@ -64,9 +64,9 @@ if (newARR !== null) {
 			if (question) {
 				delete elem.service_;
 	
-				let resultArrDel = newARR.filter(element => element.service_ !== undefined);
+				newARR = newARR.filter(element => element.service_ !== undefined);
 	
-				localStorage.setItem( 'firstData', JSON.stringify(resultArrDel) );
+				localStorage.setItem( 'firstData', JSON.stringify(newARR.reverse()) );
 			}
 		});
 	}	

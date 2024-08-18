@@ -1,6 +1,7 @@
 body {
     background-size: cover;
     background-image: url(logo.jpg);
+    background-attachment: fixed;
 }
 
 th, td {
