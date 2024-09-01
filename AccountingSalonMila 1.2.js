@@ -84,8 +84,6 @@ let sumDayCard = 0;
 
 for (let i = rows.length - 1; i < rows.length ; i--) {
 
-	
-
     if (rows[i].cells[4].innerHTML[1] !== rows[i-1].cells[4].innerHTML[1] && (i-1) !== 0) {
 		console.log('(.)(.)');
 		console.log(rows[i-1].cells[1].innerHTML);
@@ -95,12 +93,18 @@ for (let i = rows.length - 1; i < rows.length ; i--) {
 			if (Number(+rows[j].cells[1].innerHTML)) {sumDayCash += +rows[j].cells[1].innerHTML};
 			if (Number(+rows[j].cells[2].innerHTML)) {sumDayCard += +rows[j].cells[2].innerHTML};
 
-			if (sumDayCash !== NaN && sumDayCard !== NaN) {}
+			if (sumDayCash !== NaN && sumDayCard !== NaN) {
 				sumDay = sumDayCash + sumDayCard;
 			}
 
 			rows[i].cells[5].innerHTML = sumDay;
+			
+//			sumDay = 0;
+//			sumDayCash = 0;
+//			sumDayCard = 0;
 		}
+	}
+		
 // ? ниже
 
 /*		for (let j = 1; j < i; j++) {
@@ -125,7 +129,7 @@ for (let i = rows.length - 1; i < rows.length ; i--) {
 			console.log(sum);
 		}
 */
-	}	
+}	
 
 
 lastIndexToProf = [];
